@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Desarrollo de Software a Medida - Creación de aplicaciones personalizadas para mejorar tus procesos de negocio.">
+    <title>Desarrollo de Software a Medida</title>
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .section h2 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .section p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .example-item {
+            flex: 1;
+            min-width: 250px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+        .example-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .example-item h3 {
+            font-size: 1.5em;
+            color: #007bff;
+            margin-top: 10px;
+        }
+        .example-item p {
+            color: #555;
+            font-size: 1em;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta a {
+            text-decoration: none;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+        .cta a:hover {
+            background-color: #218838;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            background-color: #333;
+            color: white;
+        }
+        footer .social-icons a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+        }
+        footer .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .cta a {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .cta a {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Desarrollo de Software a Medida</h1>
+        <p>Creación de aplicaciones personalizadas que se adaptan perfectamente a las necesidades de tu negocio</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>¿Qué Ofrecemos?</h2>
+            <p>Ofrecemos soluciones a medida que transforman y optimizan tus procesos empresariales mediante la creación de software personalizado. Nuestro objetivo es mejorar la productividad y la eficiencia de tu negocio con aplicaciones diseñadas específicamente para ti.</p>
+        </section>
+
+        <section class="section">
+            <h2>Ejemplos de Nuestros Trabajos</h2>
+            <div class="examples">
+                <div class="example-item">
+                    <img src="example1.jpg" alt="Ejemplo 1">
+                    <h3>Aplicación de Gestión Interna</h3>
+                    <p>Desarrollamos una aplicación de gestión para coordinar tareas y proyectos internos, mejorando la comunicación y el flujo de trabajo.</p>
+                </div>
+                <div class="example-item">
+                    <img src="example2.jpg" alt="Ejemplo 2">
+                    <h3>Sistema de Facturación</h3>
+                    <p>Implementamos un sistema de facturación automatizado que simplifica la emisión de facturas y el seguimiento de pagos.</p>
+                </div>
+                <div class="example-item">
+                    <img src="example3.jpg" alt="Ejemplo 3">
+                    <h3>Aplicación de Atención al Cliente</h3>
+                    <p>Desarrollamos una app para atención al cliente que facilita el contacto y la resolución de problemas de manera eficiente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>¿Cómo Funciona?</h2>
+            <p>Nuestro proceso de desarrollo se basa en entender tus necesidades y crear soluciones a medida:</p>
+            <ul>
+                <li><i class="fas fa-search"></i> <strong>Consultoría Inicial:</strong> Analizamos tus requerimientos y objetivos.</li>
+                <li><i class="fas fa-pencil-alt"></i> <strong>Diseño:</strong> Creamos el diseño de la aplicación adaptado a tus necesidades.</li>
+                <li><i class="fas fa-code"></i> <strong>Desarrollo:</strong> Programamos la aplicación con tecnologías modernas.</li>
+                <li><i class="fas fa-cogs"></i> <strong>Implementación y Soporte:</strong> Implementamos la solución y proporcionamos soporte continuo.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Solicita una Consulta</h2>
+            <form action="procesar_formulario.php" method="POST">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+                
+                <label for="mensaje">Descripción de tu Proyecto:</label>
+                <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                
+                <button type="submit">Enviar Consulta</button>
+            </form>
+        </section>
+
+        <div class="cta">
+            <p>¿Listo para mejorar tus procesos con software a medida?</p>
+            <a href="mailto:contacto@tudominio.com">Contáctanos Ahora</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 [Tu Nombre] - Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>

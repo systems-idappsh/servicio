@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Para Registro de Nuevos Clientes</title>
+    <link rel="stylesheet" href="/forms/css_fors/styles_form_bots.css">
+    <script type="module" defer src="/forms/js_fors/scripts_bots_sdk.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Registrar Nuevos Datos Para Cuenta de Nuevo Cliente</h1>
+        <!-- <div>
+            <button id="btnRegresar" onclick="window.history.back()">Regresar</button>
+            <button class="btn-sidebar" onclick="window.location.href='../index.html'">
+                <i class="fa-solid fa-house"></i><span>Inicio</span>
+            </button>
+        </div> -->
+    </header>
+    <div class="container">
+
+
+        <form id="clientForm" action="/submit-client" method="POST">
+            <!-- Sección 1 -->
+            <div class="section active">
+                <h2>Información del Solicitante</h2>
+                <div class="info">
+                    En esta sección, por favor proporcione sus datos personales de contacto. Estos serán utilizados por
+                    nuestro equipo para ponerse en contacto con usted.
+                </div>
+                <label for="nombreUsuario">Nombre de Usuario Solicitante:</label>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ej. Juan Pérez" required>
+                <div id="nombreUsuario_error" class="mensaje-error">Este campo es obligatorio y debe contener solo
+                    letras.</div>
+                <div id="nombreUsuario_correcto" class="mensaje-correcto">Nombre válido.</div>
+
+                <label for="numeroContacto">Número de Contacto:</label>
+                <input type="tel" id="numeroContacto" name="numeroContacto" placeholder="Ej. +52 123 456 7890" required>
+                <div id="numeroContacto_error" class="mensaje-error">Este campo es obligatorio y debe contener un número
+                    válido.</div>
+                <div id="numeroContacto_correcto" class="mensaje-correcto">Teléfono válido.</div>
+
+                <label for="correoSolicitante">Correo Electrónico:</label>
+                <input type="email" id="correoSolicitante" name="correoSolicitante"
+                    placeholder="Ej. correo@ejemplo.com">
+                <div id="correoSolicitante_error" class="mensaje-error">Este campo es obligatorio y debe contener un
+                    correo electrónico válido.</div>
+                <div id="correoSolicitante_correcto" class="mensaje-correcto">Correo electrónico válido.</div>
+
+                <!-- Campo para País -->
+                <label for="pais">Mi Estado Actual:</label>
+                <input type="text" id="pais" name="pais"
+                    placeholder="Selecciona Estado Actual Donde Radiaca Actualmente" autocomplete="off"
+                    oninput="filterCountries()" onfocus="showAllCountries()">
+                <div id="pais-autocomplete-suggestions" class="autocomplete-suggestions"></div>
+                <div id="pais_error" class="mensaje-error">Este campo es obligatorio y debe contener solo letras.</div>
+                <div id="pais_correcto" class="mensaje-correcto">Estado válido.</div>
+
+
+            </div>
+
+            <!-- Sección 2 -->
+            <div class="section">
+                <h2>Información de la Cuenta para Programar</h2>
+                <div class="info">
+                    Aquí deberá proporcionar la información de su cuenta para acceder a la plataforma Visas Consula y
+                    otros datos necesarios para gestionar el trámite.
+                </div>
+                <label for="correoVisas">Correo Electrónico de la Plataforma Visas Consula:</label>
+                <input type="email" id="correoVisas" name="correoVisas" placeholder="Ej. visa@ejemplo.com">
+                <div id="correoVisas_error" class="mensaje-error">Este campo es obligatorio y debe contener un correo
+                    electrónico válido.</div>
+
+                <label for="passwordVisas">Contraseña del Perfil Visas Consula:</label>
+                <div class="password-container">
+                    <input type="password" id="passwordVisas" name="passwordVisas" placeholder="Ingrese su contraseña">
+                    <label>
+                        <input type="checkbox" id="showPasswordCheckbox">
+                        Mostrar Contraseña
+                    </label>
+                </div>
+                <div id="passwordVisas_error" class="mensaje-error">Este campo es obligatorio.</div>
+            </div>
+
+
+            <!-- Sección 3 -->
+            <div class="section">
+                <h2>Información de la Solicitud</h2>
+                <div class="info">
+                    Proporcione detalles acerca del tipo de solicitud y la cantidad de personas involucradas en este
+                    trámite.
+                </div>
+                <label for="tipo_tramite">Tipo de Trámite:</label>
+                <select id="tipo_tramite" name="tipo_tramite" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="primeravez">Primera vez</option>
+                    <option value="reenovacion">Renovación</option>
+                </select>
+                <div id="tipo_tramite_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="tipo_tramite_correcto" class="mensaje-correcto">Tipo de trámite válido.</div>
+
+                <label for="cantidad_personas">Cantidad de Personas:</label>
+                <input type="number" id="cantidad_personas" name="cantidad_personas" placeholder="Número de personas"
+                    required min="1">
+                <div id="cantidad_personas_error" class="mensaje-error">Este campo es obligatorio y debe ser un número
+                    válido.</div>
+                <div id="cantidad_personas_correcto" class="mensaje-correcto">Cantidad válida.</div>
+            </div>
+
+            <!-- Sección 4 -->
+            <div class="section">
+                <h2>Ubicación de Trámite</h2>
+                <div class="info">
+                    Por favor, indique las ubicaciones relevantes para su trámite (seleccione una o mas opciones).
+                </div>
+                <!-- Campo para Ubicación Consular -->
+                <label for="ubicacion_consular">Ubicación Consular:</label>
+                <div id="ubicacion_consular-selected-countries" class="selected-countries"></div>
+                <input type="text" id="ubicacion_consular" name="ubicacion_consular"
+                    placeholder="Escribe o selecciona una ubicación consular" autocomplete="off"
+                    oninput="filterUbicacionConsular()" onfocus="showAllUbicacionConsular()">
+                <div id="ubicacion-consular-suggestions" class="autocomplete-suggestions"></div>
+                <div id="ubicacion_consular_error" class="mensaje-error">Este campo es obligatorio y debe contener solo
+                    letras.</div>
+                <div id="ubicacion_consular_correcto" class="mensaje-correcto">Ubicación Consular válida.</div>
+
+                <!-- Campo para Ubicación CAS -->
+                <label for="ubicacion_CAS">Ubicación CAS:</label>
+                <div id="ubicacion_CAS-selected-countries" class="selected-countries"></div>
+                <input type="text" id="ubicacion_CAS" name="ubicacion_CAS"
+                    placeholder="Escribe o selecciona una ubicación CAS" autocomplete="off"
+                    oninput="filterUbicacionCAS()" onfocus="showAllUbicacionCAS()">
+                <div id="ubicacion-CAS-suggestions" class="autocomplete-suggestions"></div>
+                <div id="ubicacion_CAS_error" class="mensaje-error">Este campo es obligatorio y debe contener solo
+                    letras.</div>
+                <div id="ubicacion_CAS_correcto" class="mensaje-correcto">Ubicación CAS válida.</div>
+            </div>
+
+
+            <!-- Sección 5 -->
+            <div class="section">
+                <h2>Notas Finales</h2>
+                <div class="info">
+                    Complete cualquier información adicional que considere importante.
+                </div>
+                <label for="address">Notas Generales:</label>
+                <textarea id="address" name="address" rows="8"
+                    placeholder="Describa el proceso completo para crear el bot, incluyendo:
+- Pasos detallados a seguir
+- Tiempos estimados entre cada búsqueda o acción
+- Errores comunes y cómo resolverlos
+- Procedimientos a seguir en caso de problemas inesperados
+- Restricciones o limitaciones conocidas
+
+Incluya todos los detalles posibles. Si tiene dudas o necesita asistencia adicional, no dude en solicitar ayuda."></textarea>
+
+                <div id="address_error" class="mensaje-error">Este campo es obligatorio.</div>
+
+                <label for="fecha_hora_registro_nuevo_cliente">Fecha y Hora de Registro Nuevo Cliente:</label>
+                <!-- <input type="text" id="fecha_hora_registro_nuevo_cliente" name="fecha_hora_registro_nuevo_cliente"
+        readonly>
+    <div id="fecha_hora_registro_nuevo_cliente_error" class="mensaje-error">Este campo se llena automáticamente.</div> -->
+            </div>
+
+
+            <!-- Botones de navegación -->
+            <div class="button-container">
+                <button type="button" id="prevButton">Anterior</button>
+                <button type="button" id="nextButton">Siguiente</button>
+                <button type="submit" id="submitButton" class="enviar">Enviar Información</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script src="/forms/js_fors/scripts_cliente_elemt.js"></script>
+    <script src="/forms/js_fors/scripts_form_bots.js"></script>
+</body>
+
+</html>

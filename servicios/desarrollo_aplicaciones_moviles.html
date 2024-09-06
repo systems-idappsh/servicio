@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Desarrollo de apps nativas y multiplataforma que permiten a tu negocio llegar directamente a los dispositivos móviles de tus clientes.">
+    <title>Desarrollo de Aplicaciones Móviles</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Fuentes e íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0 0;
+        }
+        .banner {
+            position: relative;
+            height: 400px;
+            background: url('banner.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .banner h2 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 2em;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .carousel-button.prev {
+            left: 10px;
+        }
+        .carousel-button.next {
+            right: 10px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        footer p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .banner h2 {
+                font-size: 2em;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .banner h2 {
+                font-size: 1.5em;
+            }
+            .carousel-button {
+                font-size: 1.5em;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Desarrollo de Aplicaciones Móviles</h1>
+        <p>Desarrollo de apps nativas y multiplataforma que permiten a tu negocio llegar directamente a los dispositivos móviles de tus clientes.</p>
+    </header>
+
+    <div class="banner">
+        <h2>Impulsa tu negocio con apps móviles</h2>
+    </div>
+
+    <section class="carousel">
+        <div class="carousel-wrapper">
+            <img src="app1.jpg" alt="Aplicación 1">
+            <img src="app2.jpg" alt="Aplicación 2">
+            <img src="app3.jpg" alt="Aplicación 3">
+        </div>
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Desarrollo de Aplicaciones Móviles. Todos los derechos reservados.</p>
+        <p>Para más información, <a href="mailto:contacto@ejemplo.com">contáctanos</a>.</p>
+    </footer>
+
+    <script>
+        let index = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelectorAll('.carousel-wrapper img');
+            index = (index + step + slides.length) % slides.length;
+            const offset = -index * 100;
+            document.querySelector('.carousel-wrapper').style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+
+</body>
+</html>

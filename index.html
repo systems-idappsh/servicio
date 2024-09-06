@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Servicios de desarrollo, automatización y soluciones tecnológicas para mejorar procesos de negocio">
+    <title>Servicios de Desarrollo y Soluciones Tecnológicas</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Fuente e íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+
+            justify-content: space-between;
+            /* Distribute space between left and right sections */
+            align-items: center;
+            /* Align items vertically in the center */
+            padding: 20px;
+            background-color: #3498db;
+            color: rgb(255, 255, 255);
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-image: linear-gradient(100deg, #000000, #00000020), url(client_ico_256.ico);
+            /* background-size: cover; */
+            background-position: center;
+            border-bottom: 1px solid #2980b9;
+            flex-wrap: wrap;
+            
+        }
+  /* Estilos del header */
+header {
+    text-align: center;
+    
+    align-items: center;
+    justify-content: space-between;
+            /* Distribute space between left and right sections */
+            /* Align items vertically in the center */
+            padding: 20px;
+            background-color: #965602;
+            color: rgb(255, 255, 255);
+            border-radius: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            background-image: linear-gradient(100deg, #0a0244, #00000058), url(client_ico_256.ico);
+            /* background-size: cover; */
+            background-position: center;
+            border-bottom: 1px solid #60ed0e;
+            flex-wrap: wrap;
+}
+
+/* Contenedor del logo y título */
+.logo-container {
+    display: flex; /* Utiliza Flexbox para alinear el logo y el título horizontalmente */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center; /* Centra ambos elementos horizontalmente */
+    gap: 25px; /* Espacio entre el logo y el título */
+}
+
+/* Imagen del logo */
+.logo-img {
+    width: 80px; /* Ajusta el tamaño del logo */
+    height: auto;
+}
+
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        header img {
+            width: 100px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h2 {
+            font-size: 1.5em;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .service-item i {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #28a745;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta a {
+            text-decoration: none;
+            padding: 12px 25px;
+            background-color: #ff5722;
+            color: white;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta a:hover {
+            background-color: #e64a19;
+        }
+
+        .social-media {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .social-media h2 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .social-media .icons a {
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-media .icons a i {
+            transition: transform 0.3s ease;
+        }
+
+        .social-media .icons a:hover i {
+            transform: scale(1.2);
+        }
+
+        /* Colores originales para los iconos de redes sociales */
+        .fab.fa-facebook {
+            color: #3b5998;
+            /* Color oficial de Facebook */
+        }
+
+        .fab.fa-instagram {
+            color: #E1306C;
+            /* Color oficial de Instagram */
+        }
+
+        .fab.fa-whatsapp {
+            color: #25D366;
+            /* Color oficial de WhatsApp */
+        }
+
+        .fab.fa-facebook-messenger {
+            color: #0078FF;
+            /* Color oficial de Messenger */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .footer-text {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .footer-text p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .footer-text p:first-child {
+            font-weight: bold;
+        }
+
+        .footer-logo {
+            margin-left: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Ajusta el tamaño del logo según necesites */
+            width: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .footer-text {
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .footer-text p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            line-height: 1.4em;
+        }
+
+        .footer-text p:first-child {
+            font-weight: bold;
+        }
+
+        .footer-logo {
+            margin-left: 10px;
+        }
+
+        .logo-img {
+            height: 40px;
+            /* Ajusta el tamaño del logo según necesites */
+            width: auto;
+        }
+
+        /* Alineación en pantallas pequeñas */
+        @media (max-width: 991px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+            }
+        }
+
+
+        footer p {
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+        }
+
+        .copyright_text a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Espaciado adecuado para dispositivos grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                padding-right: 15px;
+            }
+        }
+
+        /* Estilo en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+
+        footer {
+            background-color: rgb(11, 2, 2);
+            color: #fff;
+            padding: 0px 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+            padding-right: 15px;
+            /* Espaciado a la derecha */
+        }
+
+        .copyright_text a {
+            color: rgb(39, 17, 211);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                text-align: right;
+                padding-right: 15px;
+            }
+        }
+
+        /* Alinea el texto al centro en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+        /* Alineación en pantallas pequeñas */
+        @media (max-width: 991px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-text {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .footer-logo {
+                margin-left: 0;
+            }
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: .9em;
+        }
+
+        footer a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright_text {
+            text-align: right;
+            font-size: 0.9em;
+            color: #bbb;
+            margin: 0;
+            padding-right: 15px;
+            /* Espaciado a la derecha */
+        }
+
+        .copyright_text a {
+            color: rgb(39, 17, 211);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .copyright_text a:hover {
+            color: #ddd;
+            text-decoration: underline;
+        }
+
+        /* Asegura que el texto esté alineado a la derecha en pantallas grandes */
+        @media (min-width: 992px) {
+            .copyright_text {
+                text-align: right;
+                padding-right: 15px;
+            }
+        }
+
+        /* Alinea el texto al centro en pantallas más pequeñas */
+        @media (max-width: 991px) {
+            .copyright_text {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header img {
+                width: 80px;
+            }
+
+            .cta a {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            header img {
+                width: 60px;
+            }
+
+            .cta a {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="images/icorar.ico" alt="Logo" class="logo-img">
+            <h1>Servicios de Desarrollo y Soluciones Tecnológicas</h1>
+        </div>
+        <p>Soluciones a medida que optimizan tu negocio y lo llevan al siguiente nivel</p>
+    </header>
+
+    <div class="container">
+        <section class="services">
+            <a href="servicios/desarrollo_software_medida.html" class="service-item">
+                <i class="fas fa-laptop-code"></i>
+                <h2>Desarrollo de Software a Medida</h2>
+                <p>Creación de aplicaciones personalizadas que se adaptan perfectamente a las necesidades de tu negocio,
+                    mejorando tus procesos y productividad.</p>
+            </a>
+            <a href="servicios/desarrollo_web_profesional.html" class="service-item">
+                <i class="fas fa-globe"></i>
+                <h2>Desarrollo Web Profesional</h2>
+                <p>Diseño y desarrollo de sitios web modernos, adaptativos y optimizados para móviles, que conectan con
+                    tu audiencia de manera efectiva.</p>
+            </a>
+            <a href="servicios/desarrollo_aplicaciones_moviles.html" class="service-item">
+                <i class="fas fa-mobile-alt"></i>
+                <h2>Desarrollo de Aplicaciones Móviles</h2>
+                <p>Desarrollo de apps nativas y multiplataforma que permiten a tu negocio llegar directamente a los
+                    dispositivos móviles de tus clientes.</p>
+            </a>
+            <a href="servicios/automatizacion-procesos.html" class="service-item">
+                <i class="fas fa-cogs"></i>
+                <h2>Automatización de Procesos</h2>
+                <p>Implementación de herramientas automatizadas que optimizan tareas repetitivas, ahorrando tiempo y
+                    reduciendo errores.</p>
+            </a>
+            <a href="servicios/bots_automatizacion_tareas.html" class="service-item">
+                <i class="fas fa-robot"></i>
+                <h2>Bots para Automatización de Tareas</h2>
+                <p>Desarrollo de bots inteligentes que automatizan interacciones en redes sociales, atención al cliente,
+                    recolección de datos y mucho más.</p>
+            </a>
+            <a href="servicios/integracion_apis.html" class="service-item">
+                <i class="fas fa-plug"></i>
+                <h2>Integración de APIs</h2>
+                <p>Conecta tu negocio con plataformas externas mediante la integración de APIs, optimizando tu flujo de
+                    trabajo y conectividad.</p>
+            </a>
+            <a href="servicios/consultoria_soporte.html" class="service-item">
+                <i class="fas fa-headset"></i>
+                <h2>Consultoría y Soporte</h2>
+                <p>Asesoría técnica especializada y soporte continuo para garantizar que tus soluciones tecnológicas
+                    funcionen a la perfección.</p>
+            </a>
+        </section>
+
+        <div class="cta">
+            <p>Si estás buscando soluciones tecnológicas que impulsen tu negocio, ¡hablemos!</p>
+            <a href="mailto:contacto@tudominio.com">Contáctame</a>
+        </div>
+    </div>
+
+    < <footer id="footer">
+        <section class="social-media">
+            <h2>Síguenos en nuestras redes sociales</h2>
+            <div class="icons">
+                <div class="footer-logo">
+                    <a href="https://www.facebook.com/profile.php?id=61561523894253&mibextid=ZbWKwL" target="_blank">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="https://wa.me/6649750913" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp fa-2x"></i>
+                    </a>
+                    <a href="https://www.messenger.com/t/USERNAME" target="_blank" aria-label="Messenger">
+                        <i class="fab fa-facebook-messenger fa-2x"></i>
+                    </a>
+                </div>
+                <p>&copy; 2024 Mi Página Web. Todos los derechos reservados.</p>
+                <div class="footer-content">
+                    <div class="copyright_text">
+                        <p>Desarrollado por:</p>
+                        <p>Raul A. Alameda Ruelas</p>
+                        <a href="https://idappsh.sites/" target="_blank">IDAPPSH</a>
+                    </div>
+                    <div class="footer-logo">
+                        <img src="images/icorar.ico" alt="Logo" class="logo-img">
+                    </div>
+                </div>
+        </section>
+        </footer>
+
+
+</body>
+
+</html>

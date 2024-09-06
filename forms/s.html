@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Solicitud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .mensaje-error {
+            color: red;
+            display: none;
+            font-size: 14px;
+        }
+
+        .mensaje-correcto {
+            color: green;
+            display: none;
+            font-size: 14px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button-container button {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Solicitud</h1>
+        <form id="clientForm">
+
+            <!-- Sección 1 -->
+            <div class="section active" id="section1">
+                <h2>Información del Solicitante</h2>
+                <div class="info">
+                    En esta sección, por favor proporcione sus datos personales de contacto. Estos serán utilizados por nuestro equipo para ponerse en contacto con usted.
+                </div>
+                <label for="nombreUsuario">Nombre de Usuario Solicitante:</label>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Ej. Juan Pérez">
+                <div class="error" id="errorNombreUsuario"></div>
+                <div id="name_error" class="mensaje-error">Este campo es obligatorio y debe contener solo letras.</div>
+                <div id="name_correcto" class="mensaje-correcto">Nombre válido.</div>
+
+                <label for="numeroContacto">Número de Contacto:</label>
+                <input type="tel" id="numeroContacto" name="numeroContacto" placeholder="Ej. +52 123 456 7890">
+                <div class="error" id="errorNumeroContacto"></div>
+                <div id="phone_error" class="mensaje-error">Este campo es obligatorio y debe contener un número válido.</div>
+                <div id="phone_correcto" class="mensaje-correcto">Teléfono válido.</div>
+
+                <label for="correoSolicitante">Correo Electrónico:</label>
+                <input type="email" id="correoSolicitante" name="correoSolicitante" placeholder="Ej. correo@ejemplo.com">
+                <div class="error" id="errorCorreoSolicitante"></div>
+                <div id="email_error" class="mensaje-error">Este campo es obligatorio y debe contener un correo electrónico válido.</div>
+                <div id="email_correcto" class="mensaje-correcto">Correo electrónico válido.</div>
+            </div>
+
+            <!-- Sección 2 -->
+            <div class="section" id="section2">
+                <h2>Información de la Cuenta para Programar</h2>
+                <div class="info">
+                    Aquí deberá proporcionar la información de su cuenta para acceder a la plataforma Visas Vonsula y otros datos necesarios para gestionar el trámite.
+                </div>
+                <label for="correoVisas">Correo Electrónico de la Plataforma Visas Vonsula:</label>
+                <input type="email" id="correoVisas" name="correoVisas" placeholder="Ej. visa@ejemplo.com">
+                <div class="error" id="errorCorreoVisas"></div>
+                
+
+                <label for="passwordVisas">Contraseña del Perfil Visas Vonsula:</label>
+                <input type="password" id="passwordVisas" name="passwordVisas" placeholder="Ingrese su contraseña">
+                <div class="error" id="errorPasswordVisas"></div>
+
+                <label for="correoPagVisas">Correo Electrónico de Pago Visas:</label>
+                <input type="email" id="correoPagVisas" name="correoPagVisas" placeholder="Ej. pago@ejemplo.com">
+                <div class="error" id="errorCorreoPagVisas"></div>
+
+                <label for="passwordPagVisas">Contraseña de Pago Visas:</label>
+                <input type="password" id="passwordPagVisas" name="passwordPagVisas" placeholder="Ingrese su contraseña de pago">
+                <div class="error" id="errorPasswordPagVisas"></div>
+            </div>
+
+            <!-- Sección 3 -->
+            <div class="section" id="section3">
+                <h2>Tipo de Trámite</h2>
+                <h2>Información de la Solicitud</h2>
+                <div class="info">
+                    Proporcione detalles acerca del tipo de solicitud y la cantidad de personas involucradas en este trámite.
+                </div>
+                <label for="tipo_tramite">Tipo de Trámite:</label>
+                <select id="tipo_tramite" name="tipo_tramite" required>
+                    <option value="" disabled selected>Seleccione una opción</option>
+                    <option value="primeravez">Primera vez</option>
+                    <option value="reenovacion">Renovación</option>
+                </select>
+                <div class="error" id="errorTipoSolicitud"></div>
+                <div id="tipo_tramite_error" class="mensaje-error">Este campo es obligatorio.</div>
+                <div id="tipo_tramite_correcto" class="mensaje-correcto">Tipo de trámite válido.</div>
+
+                <label for="cantidad_personas">Cantidad de Personas:</label>
+                <input type="number" id="cantidad_personas" name="cantidad_personas" placeholder="Número de personas" required min="1">
+                <div class="error" id="errorCantidadPersonas"></div>
+                <div id="cantidad_personas_error" class="mensaje-error">Este campo es obligatorio y debe ser un número válido.</div>
+                <div id="cantidad_personas_correcto" class="mensaje-correcto">Cantidad válida.</div>
+            </div>
+
+            <!-- Sección 4 -->
+            <div class="section" id="section4">
+                <h2>Ubicación</h2>
+                <div class="info">
+                    En esta sección deberá especificar las ubicaciones deseadas para los centros consulares y CAS donde se realizará el trámite.
+                </div>
+                <label for="ubicacion_consular">Ubicación Consular:</label>
+                <input type="text" id="ubicacion_consular" name="ubicacion_consular" placeholder="Escribe o selecciona una ubicación consular" autocomplete="off">
+                <div class="error" id="errorUbicacionConsular"></div>
+                <div id="ubicacion_consular_error" class="mensaje-error">Este campo es obligatorio y debe contener solo letras.</div>
+                <div id="ubicacion_consular_correcto" class="mensaje-correcto">Ubicación Consular válida.</div>
+
+                <label for="ubicacion_CAS">Ubicación CAS:</label>
+                <input type="text" id="ubicacion_CAS" name="ubicacion_CAS" placeholder="Escribe o selecciona una ubicación CAS" autocomplete="off">
+                <div id="ubicacion_CAS_error" class="mensaje-error">Este campo es obligatorio y debe contener solo letras.</div>
+                <div id="ubicacion_CAS_correcto" class="mensaje-correcto">Ubicación CAS válida.</div>
+                <div class="error" id="errorUbicacionCAS"></div>
+            </div>
+
+            <!-- Sección 5 -->
+            <div class="section" id="section5">
+                <h2>Notas Generales</h2>
+                <label for="address">Notas Generales:</label>
+                <textarea id="address" name="address" rows="3" placeholder="Escribe tus notas generales"></textarea>
+                <div id="address_error" class="mensaje-error">Este campo es obligatorio.</div>
+
+                <label for="fecha_hora_registro_nuevo_cliente">Fecha y Hora de Registro Nuevo Cliente:</label>
+                <input type="text" id="fecha_hora_registro_nuevo_cliente" name="fecha_hora_registro_nuevo_cliente" readonly>
+                <div id="fecha_hora_registro_nuevo_cliente_error" class="mensaje-error">Este campo se llena automáticamente.</div>
+
+                <button type="submit">Agregar Cliente</button>
+            </div>
+
+            <!-- Botones de navegación -->
+            <div class="button-container">
+                <button type="button" id="prevButton">Anterior</button>
+                <button type="button" id="nextButton">Siguiente</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".section");
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+            let currentSection = 0;
+    
+            function showSection(index) {
+                sections.forEach((section, i) => {
+                    section.classList.toggle("active", i === index);
+                });
+                prevButton.style.display = index === 0 ? "none" : "inline-block";
+                nextButton.textContent = index === sections.length - 1 ? "Enviar" : "Siguiente";
+            }
+    
+            function validateInput(input) {
+                const value = input.value.trim();
+                const errorElement = document.getElementById(`${input.id}_error`);
+                const correctElement = document.getElementById(`${input.id}_correcto`);
+                let valid = true;
+    
+                if (input.required && !value) {
+                    valid = false;
+                    errorElement.textContent = "Este campo es obligatorio.";
+                } else if (input.type === "text" && !/^[a-zA-Z\s]+$/.test(value)) {
+                    valid = false;
+                    errorElement.textContent = "Este campo debe contener solo letras.";
+                } else if (input.type === "tel" && !/^\+?\d{10,15}$/.test(value)) {
+                    valid = false;
+                    errorElement.textContent = "Por favor ingresa un número telefónico válido.";
+                } else if (input.type === "email" && !/\S+@\S+\.\S+/.test(value)) {
+                    valid = false;
+                    errorElement.textContent = "Por favor ingresa un correo electrónico válido.";
+                } else if (input.type === "number" && (isNaN(value) || value <= 0)) {
+                    valid = false;
+                    errorElement.textContent = "Por favor ingresa una cantidad válida.";
+                }
+    
+                if (valid) {
+                    input.classList.add("input-correcto");
+                    input.classList.remove("input-incorrecto");
+                    errorElement.style.display = "none";
+                    correctElement.style.display = "block";
+                } else {
+                    input.classList.add("input-incorrecto");
+                    input.classList.remove("input-correcto");
+                    errorElement.style.display = "block";
+                    correctElement.style.display = "none";
+                }
+                return valid;
+            }
+    
+            function validateSection(index) {
+                const section = sections[index];
+                const inputs = section.querySelectorAll("input[required], select[required], textarea[required]");
+                let valid = true;
+    
+                inputs.forEach(input => {
+                    if (!validateInput(input)) valid = false;
+                });
+    
+                return valid;
+            }
+    
+            nextButton.addEventListener("click", function () {
+                if (validateSection(currentSection)) {
+                    currentSection++;
+                    if (currentSection >= sections.length) {
+                        document.getElementById("clientForm").submit();
+                        return;
+                    }
+                    showSection(currentSection);
+                }
+            });
+    
+            prevButton.addEventListener("click", function () {
+                currentSection--;
+                showSection(currentSection);
+            });
+    
+            sections.forEach(section => {
+                section.addEventListener("input", function (event) {
+                    validateInput(event.target);
+                });
+            });
+    
+            showSection(currentSection);
+        });
+    
+        function togglePassword() {
+            const passwordField = document.getElementById("password");
+            const type = passwordField.type === "password" ? "text" : "password";
+            passwordField.type = type;
+        }
+    </script>
+</body>
+</html>
